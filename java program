@@ -28,11 +28,11 @@ System.out.println("Wrong input");
 
 }
 
-public int circle() {
+public float circle() {
 int side;
 Scanner scan = new Scanner(System.in);
 side = scan.nextInt();
-return side*side;
+return 22*side*side/7;
 }
 
 public int rectangle() {
