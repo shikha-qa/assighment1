@@ -1,3 +1,4 @@
+
 package assignment;
 import java.util.*;
 // area calculation
@@ -30,6 +31,7 @@ System.out.println("Wrong input");
 
 public float circle() {
 int side;
+System.out.println("Enter side");
 Scanner scan = new Scanner(System.in);
 side = scan.nextInt();
 return 22*side*side/7;
@@ -37,6 +39,7 @@ return 22*side*side/7;
 
 public int rectangle() {
 int length, breadth;
+System.out.println("Enter length and breadth");
 Scanner scan = new Scanner(System.in);
 length = scan.nextInt();
 breadth =scan.nextInt();
@@ -45,6 +48,7 @@ return length*breadth;
 
 public int square() {
 int side;
+System.out.println("Enter side");
 Scanner scan = new Scanner(System.in);
 side = scan.nextInt();
 return side*side;
@@ -52,6 +56,7 @@ return side*side;
 
 public float triangle() {
 int altitude, base;
+System.out.println("Enter altitude and base");
 Scanner scan = new Scanner(System.in);
 altitude = scan.nextInt();
 base = scan.nextInt();
