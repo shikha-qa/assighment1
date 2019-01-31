@@ -1,0 +1,145 @@
+//driver
+public class Main {
+   public static void main(String[] args) {
+
+      //fetch data from the database
+      Customer model  = retriveCustomerData();
+
+      //To view details
+     CustomerView view = new CustomerView ();
+
+      CustomerController controller = new CustomerController(model, view);
+
+      controller.changeDetails();
+
+      //update model data
+      controller.setCustomerName("Apoorva");
+      controller.setCustomerPhoneNo("777889945");
+      controller.setBloodGroup("AB+");
+
+      controller.changeDetails();
+   }
+
+   private static Customer retriveCustomerData(){
+      Customer customer = new Customer();
+      customer.setName("Shikha");
+      customer.setId("1209");
+      customer.setBloodGroup("O+");
+      customer.setNo("989890099");
+      
+      
+      return customer;
+   }
+}
+
+
+//Controller
+ class CustomerController {
+      Customer model;
+    CustomerView view;
+
+   public CustomerController(Customer model, CustomerView view){
+      this.model = model;
+      this.view = view;
+   }
+
+   public void setCustomerName(String name){
+      model.setName(name);		
+   }
+
+   public String getCustomerName(){
+      return model.getName();		
+   }
+
+   public void setCustomerId(String id){
+      model.setId(id);		
+   }
+
+   public String getCustomerId(){
+      return model.getId();		
+   }
+   
+    public String getBloodGroup() {
+     return model.getBloodGroup();
+    }
+   
+   public void setBloodGroup(String Bloodgp) {
+        model.setBloodGroup(Bloodgp);
+   }
+   
+    public void setCustomerPhoneNo(String no)
+   {
+       model.setNo(no);
+   }
+
+   public int getCustomerPhoneNo() {
+       return model.getNo();
+   }
+   
+  
+   public void changeDetails(){				
+      view.printCustomerDetails(model.getName(), model.getId(), model.getNo(), model.getBloodGroup());
+   }	
+}
+
+
+
+//view
+class CustomerView {
+   public void printCustomerDetails(String customerName, String customerId,int phoneNo, String customerBloodGroup){
+      System.out.println("Customer details are: ");
+      System.out.println();
+      System.out.println("Name: " + customerName);
+      System.out.println("ID: " + customerId);
+      System.out.println("Blood Group: " + customerBloodGroup);
+      System.out.println("Phone No: " + phoneNo);
+      System.out.println();
+      System.out.println("------------------------------------------------------------------");
+      System.out.println();
+      
+   }
+}
+
+//model 
+   class Customer {
+       
+    String id;
+    String name;
+    String bloodgp;
+    int no;
+   
+   public String getId() {
+      return id;
+   }
+   
+   public void setId(String id) {
+      this.id = id;
+   }
+   
+   public String getName() {
+      return name;
+   }
+   
+   public void setName(String name) {
+      this.name = name;
+   }
+   
+   public String getBloodGroup() {
+      return  bloodgp;
+   }
+   
+   public void setBloodGroup(String Bloodgp) {
+      this.bloodgp =  Bloodgp;
+   }
+   
+   
+   public int getNo() {
+       return no;
+   }
+   
+   public void setNo(String no)
+   {
+       
+       this.no = Integer.parseInt(no);
+   }
+}
